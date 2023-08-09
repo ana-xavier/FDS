@@ -7,6 +7,10 @@ public class App {
         // consome 6 Km/lt e o tanque tem capacidade para 45 litros.
         Carro esportivo = new Carro("Esportivo", TipoCombustivel.GASOLINA, 6, 45);
 
+        // 2 - Crie um novo modelo de carro chamado "Utilitario". Este é movido a diesel, consome 5 Km/lt e o
+        // tanque tem capacidade para 70 litros.
+        Carro utilitario = new Carro("Utilitario", TipoCombustivel.ALCOOL, 5, 70);
+
         System.out.println("Tipos de veiculos:");
         System.out.println(basico);
 
