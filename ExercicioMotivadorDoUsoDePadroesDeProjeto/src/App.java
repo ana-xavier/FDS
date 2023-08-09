@@ -11,6 +11,11 @@ public class App {
         // tanque tem capacidade para 70 litros.
         Carro utilitario = new Carro("Utilitario", TipoCombustivel.ALCOOL, 5, 70);
 
+        // 3 - Crie um novo modelo de carro chamado "SUV". Este é movido a gasolina, consome 8 Km/lt, o tanque tem
+        // capacidade para 55 litros e é "FLEX" porque já prevê uma futura modificação nos motores.
+        Carro suv = new Carro("SUV", TipoCombustivel.FLEX, 8, 55);
+
+
         System.out.println("Tipos de veiculos:");
         System.out.println(basico);
 
