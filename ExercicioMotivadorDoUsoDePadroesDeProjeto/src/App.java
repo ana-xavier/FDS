@@ -3,6 +3,10 @@ public class App {
 
         Carro basico = new Carro("Basico", TipoCombustivel.GASOLINA, 10, 55);
 
+        // 1 - Crie um novo modelo de carro chamado "Esportivo". Este é movido a gasolina,
+        // consome 6 Km/lt e o tanque tem capacidade para 45 litros.
+        Carro esportivo = new Carro("Esportivo", TipoCombustivel.GASOLINA, 6, 45);
+
         System.out.println("Tipos de veiculos:");
         System.out.println(basico);
 
