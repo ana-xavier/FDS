@@ -46,7 +46,11 @@ public class TanqueCombustivel {
         if (getCombustivelDisponivel() - quantidade < 0) {
             return false;
         } else {
-            combustivelDisponivel -= quantidade;
+            if(this.tipoCombustivel == tipoCombustivel.GASOLINA){
+                combustivelDisponivel -= quantidade;
+            }else{
+                combustivelDisponivel -= quantidade;
+            }
             return true;
         }
     }
