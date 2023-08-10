@@ -15,10 +15,11 @@ public class App {
         // capacidade para 55 litros e é "FLEX" porque já prevê uma futura modificação nos motores.
         Carro suv = new Carro("SUV", TipoCombustivel.FLEX, 8, 55);
 
-        //Crie um novo modelo de carro chamado "SUVFlex". Este é FLEX (gasolina ou alcool) e consome 8 Km/lt de gasolina
+        // 4 - Crie um novo modelo de carro chamado "SUVFlex". Este é FLEX (gasolina ou alcool) e consome 8 Km/lt de gasolina
         // ou 6 Km/lt de alcool. O tanque é "FLEX" e tem 65 litros de capacidade. Por simplicidade assuma que o conteúdo
         // do tanque é sempre o do último abastecimento.
 
+        Carro suvflex = new Carro("SUVFlex", TipoCombustivel.FLEX, 8, 6, 65);
 
         System.out.println("Tipos de veiculos:");
         System.out.println(basico);
@@ -28,8 +29,8 @@ public class App {
         basico.abastece(TipoCombustivel.GASOLINA, 55);
         System.out.println(basico);
         System.out.println("\nViajando com o carro basico");
-        basico.viaja(250);
-        basico.viaja(150);
+        basico.viaja(250, TipoCombustivel.GASOLINA);
+        basico.viaja(150, TipoCombustivel.GASOLINA);
         System.out.println(basico);
     }
 }
