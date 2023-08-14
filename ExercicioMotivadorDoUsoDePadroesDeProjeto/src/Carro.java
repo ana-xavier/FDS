@@ -6,14 +6,25 @@ public class Carro {
 
     public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
-        motor = new Motor(tipoCombustivel, consumoMotor);
-        tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
+        setMotor(tipoCombustivel, consumoMotor, consumoMotor);
+        setTanque(tipoCombustivel, capacidadeTanque);
     }
 
      public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoPrimario, int consumoSecundario, int capacidadeTanque) {
         this.modelo = modelo;
-        motor = new Motor(tipoCombustivel, consumoPrimario, consumoSecundario);
-        tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
+        setMotor(tipoCombustivel, consumoPrimario, consumoSecundario);
+        setTanque(tipoCombustivel, capacidadeTanque);
+    }
+
+    protected void setMotor(TipoCombustivel tipo, int consumoPrimario, int consumoSecundario){
+        if (consumoPrimario == consumoSecundario)
+            motor = new Motor(tipo, consumoPrimario);
+        else
+            motor = new Motor(tipo, consumoPrimario, consumoSecundario);
+    }
+
+    protected void setTanque(TipoCombustivel tipo, int capacidade){
+        tanque = new TanqueCombustivel(tipo, capacidade);
     }
 
     public String getModelo() {
@@ -22,6 +33,10 @@ public class Carro {
 
     public int getCombustivelDisponivel() {
         return tanque.getCombustivelDisponivel();
+    }
+
+    public Motor getMotor(){
+        return motor;
     }
 
     // Retorna a quantidade efetivamente abastecida
@@ -39,19 +54,19 @@ public class Carro {
 
     // Retorna a distancia que consegue viajar com o combustivel remanescente
     public int verificaSePodeViajar(int distancia, TipoCombustivel tipoCombustivel) {
-        int combustivelNecessario = motor.combustivelNecessario(distancia, tipoCombustivel);
+        int combustivelNecessario = getMotor().combustivelNecessario(distancia, tipoCombustivel);
         if (tanque.getCombustivelDisponivel() >= combustivelNecessario) {
             return distancia;
         } else {
-            return tanque.getCombustivelDisponivel() * motor.getConsumo(tipoCombustivel);
+            return tanque.getCombustivelDisponivel() * getMotor().getConsumo(tipoCombustivel);
         }
     }
 
     // Retorna true se conseguiu viajar
     public boolean viaja(int distancia, TipoCombustivel tipoCombustivel) {
         if (verificaSePodeViajar(distancia, tipoCombustivel) >= distancia) {
-            motor.percorre(distancia);
-            tanque.gasta(motor.combustivelNecessario(distancia, tipoCombustivel));
+            getMotor().percorre(distancia);
+            tanque.gasta(getMotor().combustivelNecessario(distancia, tipoCombustivel));
             return true;
         }
         return false;
@@ -59,6 +74,6 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro:\n  Modelo=" + modelo + "\n  Motor=" + motor + "\n  Tanque=" + tanque;
+        return "Carro:\n  Modelo=" + modelo + "\n  Motor=" + getMotor() + "\n  Tanque=" + tanque;
     }
 }
