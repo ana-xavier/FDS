@@ -29,8 +29,7 @@ public class Motor {
     }
 
     public int combustivelNecessario(int distancia, TipoCombustivel tipoCombustivel) {
-        return tipoCombustivel == TipoCombustivel.GASOLINA ? distancia / consumoPrimario
-                : distancia / consumoSecundario;
+        return  distancia / getConsumo(tipoCombustivel);
     }
 
     public void percorre(int distancia) {
@@ -39,7 +38,10 @@ public class Motor {
 
     @Override
     public String toString() {
-        return "Motor [consumo=" + consumoPrimario + ", quilometragem=" + quilometragem + ", tipoMotor=" + tipoMotor
+        return tipoMotor != TipoCombustivel.FLEX ? "Motor [consumo=" + consumoPrimario + ", quilometragem=" + quilometragem + ", tipoMotor=" + tipoMotor
+                + "]":
+                "Motor [consumo gasolina=" + consumoPrimario + ", consumo álcool=" + consumoSecundario + ", quilometragem=" + quilometragem + ", tipoMotor=" + tipoMotor
                 + "]";
+         
     }
 }
