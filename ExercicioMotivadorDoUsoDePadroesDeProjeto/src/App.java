@@ -9,11 +9,11 @@ public class App {
 
         // 2 - Crie um novo modelo de carro chamado "Utilitario". Este é movido a diesel, consome 5 Km/lt e o
         // tanque tem capacidade para 70 litros.
-        Carro utilitario = new Carro("Utilitario", TipoCombustivel.ALCOOL, 5, 70);
+        Carro utilitario = new Carro("Utilitario", TipoCombustivel.DIESEL, 5, 70);
 
         // 3 - Crie um novo modelo de carro chamado "SUV". Este é movido a gasolina, consome 8 Km/lt, o tanque tem
         // capacidade para 55 litros e é "FLEX" porque já prevê uma futura modificação nos motores.
-        Carro suv = new Carro("SUV", TipoCombustivel.FLEX, 8, 55);
+        Carro suv = new Carro("SUV", TipoCombustivel.GASOLINA, TipoCombustivel.FLEX, 8, 55);
 
         // 4 - Crie um novo modelo de carro chamado "SUVFlex". Este é FLEX (gasolina ou alcool) e consome 8 Km/lt de gasolina
         // ou 6 Km/lt de alcool. O tanque é "FLEX" e tem 65 litros de capacidade. Por simplicidade assuma que o conteúdo

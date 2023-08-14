@@ -2,10 +2,19 @@ public class Carro {
 
     private String modelo;
     private Motor motor;
+    private TipoCombustivel tipoTanque;
     private TanqueCombustivel tanque;
 
     public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
+
+        setMotor(tipoCombustivel, consumoMotor, consumoMotor);
+        setTanque(tipoCombustivel, capacidadeTanque);
+    }
+
+    public Carro(String modelo, TipoCombustivel tipoCombustivel, TipoCombustivel tipoTanque, int consumoMotor, int capacidadeTanque) {
+        this.modelo = modelo;
+        this.tipoTanque = tipoTanque;
         setMotor(tipoCombustivel, consumoMotor, consumoMotor);
         setTanque(tipoCombustivel, capacidadeTanque);
     }

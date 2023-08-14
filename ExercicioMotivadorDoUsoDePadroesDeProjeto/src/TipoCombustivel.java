@@ -1,3 +1,3 @@
 public enum TipoCombustivel {
-    GASOLINA,ALCOOL,FLEX;
+    GASOLINA,ALCOOL,FLEX,DIESEL;
 }
